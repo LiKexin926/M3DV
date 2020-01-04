@@ -50,7 +50,7 @@ if __name__ == "__main__":
     csv_path = 'submission.csv'
     test_path = "../test"
     pretrained_path = 'model.pth'
-    final_path = 'submission.csv'
+    res_path = 'submission.csv'
     is_pretrained = True
     batch_size = 24
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         if cont[0]!='Id':
             name.append(cont[0])
     dataframe = pd.DataFrame({'Id':name,'Predicted':predicted})
-    dataframe.to_csv(final_path,index=False)
+    dataframe.to_csv(res_path,index=False)
     
     
     
