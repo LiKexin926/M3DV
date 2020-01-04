@@ -5,12 +5,6 @@ import scipy
 import matplotlib.pyplot as plt
 
 def rotation(array, angle):
-    '''using Euler angles method.
-    @author: renchao
-    @params:
-        angle: 0: no rotation, 1: rotate 90 deg, 2: rotate 180 deg, 3: rotate 270 deg
-    '''
-    #
     X = np.rot90(array, angle[0], axes=(0, 1))  # rotate in X-axis
     Y = np.rot90(X, angle[1], axes=(0, 2))  # rotate in Y'-axis
     Z = np.rot90(Y, angle[2], axes=(1, 2))  # rotate in Z"-axis
@@ -18,11 +12,6 @@ def rotation(array, angle):
 
 
 def reflection(array, axis):
-    '''
-    @author: renchao
-    @params:
-        axis: -1: no flip, 0: Z-axis, 1: Y-axis, 2: X-axis
-    '''
     if axis != -1:
         ref = np.flip(array, axis)
     else:
@@ -50,8 +39,6 @@ def _ntuple(n):
         if isinstance(x, collections.Iterable):
             return x
         return tuple(repeat(x, n))
-
     return parse
-
 
 _triple = _ntuple(3)
