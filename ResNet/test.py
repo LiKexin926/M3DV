@@ -15,41 +15,32 @@ import resnet
 
 class test_data_prepare(data.Dataset):
     def __init__(self,csv_path,img_path):
-        '''
-        :在这初始化一些参数
-        '''
-        self.img_path = img_path#图像读取路径
+        self.img_path = img_path
         self.csv_path = csv_path
-        # self.dt_file = dt_file#检测出的结果
-        #图像尺寸
         self.img_rows = 32
         self.img_cols = 32
         self.img_dims = 32
         
-        self.length=0#数据长度
-        self.img =[]#数据存储
-        self.data_get()#数据获取
+        self.length=0
+        self.img =[]
+        self.data_get()
 
     def data_get(self):
-        #数据获取
         self.img = read.new_test(self.csv_path,self.img_path)
         self.length=len(self.img)
 
-    def __getitem__(self, index):#读取数据
-        # data = torch.from_numpy(self.img[index])
+    def __getitem__(self, index):
         data = []
-        data.append(self.img[index])#读取第index个图像
+        data.append(self.img[index])
         return torch.from_numpy(np.array(data)).float()
 
     def __len__(self):
-        #返回数据长度
         return self.length
 
 def reload(model, checkpoint):
     new_state_dict = model.state_dict()
     for k in checkpoint.keys():
         if k in new_state_dict.keys():
-            # 检测字符串是否以指定字符开头
             new_state_dict[k] = checkpoint[k]
     model.load_state_dict(new_state_dict)
 
