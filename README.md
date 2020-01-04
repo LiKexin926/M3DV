@@ -1,5 +1,5 @@
 # M3DV
-当前共两个文件夹，运行代码时需要把测试集、训练集放在相对代码的上一级文件中。
+当前共两个文件夹，运行代码时需要把测试集、训练集放在相对代码的上一级文件中。使用DenseNet的分数为0.65366，使用ResNet的分数为0.6436，两者加权混合得到的分数为0.65894。最终在leaderboard上的结果是使用DenseNet得到的。
 
 # ResNet:
 该文件存放使用ResNet模型的代码，由于模型过大，存放在了https://pan.baidu.com/s/1WB72GWAI2kSb9cjqfS-G-w 中，下载后放在ResNet文件夹下命名为'model.pth'即可。
