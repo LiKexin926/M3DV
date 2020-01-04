@@ -58,7 +58,7 @@ def reload(model, checkpoint):
 if __name__ == "__main__":
     csv_path = 'submission.csv'
     test_path = "../test"
-    pretrained_path = 'model/0.pth'
+    pretrained_path = 'model.pth'
     is_pretrained = True
     batch_size = 24
 
